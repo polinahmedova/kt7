@@ -36,7 +36,8 @@ class HomeView extends GetView<HomeController> {
                     itemBuilder: (context, index) {
                       var currentCar = controller.cars[index];
                       return GestureDetector(
-                        onTap: () => Get.toNamed('car', arguments: currentCar),
+                        onTap: () =>
+                            Get.toNamed('car_page', arguments: currentCar),
                         child: Card(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15)),
@@ -44,14 +45,17 @@ class HomeView extends GetView<HomeController> {
                           child: ListTile(
                             leading: Text(
                               currentCar.id.toString(),
-                              style: const TextStyle(fontSize: 16),
+                              style: const TextStyle(fontSize: 20),
                             ),
                             title: Text(
-                              "${currentCar.brand}, ${currentCar.model}",
+                              "${currentCar.brand} ${currentCar.model}, ${currentCar.color}",
                               style: const TextStyle(fontSize: 20),
                             ),
                             subtitle: Text(
-                                "Стоимость: ${currentCar.price.toString()}\$"),
+                              "Price: ${currentCar.price.toString()}\$ ",
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 5, 216, 79)),
+                            ),
                             trailing: Column(
                               children: [
                                 if (currentCar.availability)
