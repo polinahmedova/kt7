@@ -24,6 +24,7 @@ class Car with _$Car {
     @JsonKey(name: "car") String brand,
     @JsonKey(name: "car_model") String model,
     @DoubleToStringConverter() double price,
+    bool availability,
   ) = _Car;
 
   factory Car.fromJson(Map<String, dynamic> json) => _$CarFromJson(json);
